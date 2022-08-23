@@ -1,4 +1,4 @@
-# DB-Web
+#DB-Web
 
 #DB를 사용해 회원등록 사이트 만들기
 
@@ -54,6 +54,8 @@
 변화가 없는 것 같지만
 
 데이터 베이스값을 한 번 보겠습니다.
+
+
 ![image](https://user-images.githubusercontent.com/93520535/186064428-f3db0ce8-9144-45b4-af0b-e7526de702db.png)
 
 
