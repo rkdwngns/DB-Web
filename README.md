@@ -31,8 +31,12 @@
 	<td><input type="text" name="custname" ></td>
 	</tr>            
 ```
-DB를 연결해주거
-각 이름을 정해주고 join_p페이지에서 값을 받습니다.
+DB를 연결해주고
+각 이름을 정해주고 join_p페이지에서 custon을 제외하고 문자열로 값을 받습니다.
+String sql="insert into member_tbl_02 values (?, ?, ?, ?, ?, ?, ?)";
+이 코드를 보면 member_tbl_02 values에 sql을 넣고
+PreparedStatement pstmt = conn.prepareStatement(sql);
+을 통해 pstmt곳에 sql의 값을 넣어주고 
 
 ```
  request.setCharacterEncoding("UTF-8");
@@ -45,6 +49,9 @@ DB를 연결해주거
  pstmt.setString(2, request.getParameter("custname"));
  pstmt.setString(3, request.getParameter("phone"));
 ```
+pstmt.setString(2, request.getParameter("custname"));
+을 통해 값을 넣어준것을 볼 수 있습니다.
+
 
 ![image](https://user-images.githubusercontent.com/93520535/186064030-7d1e2a57-22c8-426d-8792-5e564b295f09.png)
 
