@@ -31,6 +31,7 @@
 	<td><input type="text" name="custname" ></td>
 	</tr>            
 ```
+DB를 연결해주거
 각 이름을 정해주고 join_p페이지에서 값을 받습니다.
 
 ```jsp
