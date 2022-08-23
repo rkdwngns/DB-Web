@@ -24,6 +24,7 @@ DB테이블을 생성해 놓은 쿼리문
   price number(8),
   pcode varchar2(4),
 ```
+이곳에는 데이터를 넣는 DB테이블을 생성하였습니다.
 
 데이터 베이스 연결 파일
 
@@ -44,6 +45,13 @@ public static Connection getConnection() {
 			e.printStackTrace();
 		}
 ```
+System계정에 연결을 시도하고
+데이터 베이스에 연결에 성공할 시에 
+DBtest라는 문구가 출력 됩니다.
+
+
+![image](https://user-images.githubusercontent.com/93520535/186095219-a75194ed-27b6-4adb-ba51-de3c142b6c89.png)
+
 
 데이터 베이스에 정보를 추가하기 위한 join화면 입니다.
 
@@ -63,16 +71,16 @@ public static Connection getConnection() {
 	<td><input type="text" name="custname" ></td>
 	</tr>            
 ```
-각 이름을 정해주고 join_p페이지에서 custon을 제외하고 문자열로 값을 받습니다.
+각 이름을 정해주고 join_p페이지에서 custon는 Intger을 사용해 int형태로 받고
+나머지의 값들은 String를 사용하여 문자열로 받아줍니다.
+```jsp
 String sql="insert into member_tbl_02 values (?, ?, ?, ?, ?, ?, ?)";
-이 코드를 보면 member_tbl_02 values에 sql을 넣고
-PreparedStatement pstmt = conn.prepareStatement(sql);
-을 통해 pstmt곳에 sql의 값을 넣어주고 
-
 ```
- request.setCharacterEncoding("UTF-8");
- String sql="insert into member_tbl_02 values (?, ?, ?, ?, ?, ?, ?)";
- 
+이 코드를 보면 member_tbl_02 values을 sql에 넣고
+PreparedStatement pstmt = conn.prepareStatement(sql);
+을 통해 pstmt곳에 sql의 값을 넣어주고
+
+```jsp
  Connection conn = DBConnect.getConnection();
  PreparedStatement pstmt = conn.prepareStatement(sql);
  
@@ -81,7 +89,7 @@ PreparedStatement pstmt = conn.prepareStatement(sql);
  pstmt.setString(3, request.getParameter("phone"));
 ```
 pstmt.setString(2, request.getParameter("custname"));
-을 통해 값을 넣어준것을 볼 수 있습니다.
+그러면  (?, ?, ?, ?, ?, ?, ?)에 2번째에 값이 들어가게 됩니다.
 
 
 ![image](https://user-images.githubusercontent.com/93520535/186064030-7d1e2a57-22c8-426d-8792-5e564b295f09.png)
