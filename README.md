@@ -59,6 +59,17 @@ pstmt.setString(2, request.getParameter("custname"));
 
 ![image](https://user-images.githubusercontent.com/93520535/186064074-faa77a95-5a22-4680-ae01-ce1f5ea6c8e7.png)
 
+DB테이블
+```DB
+ create table money_tbl_02(
+ custno number(6),
+  salenol number(8),
+  pcost number(8),
+  amount number(4),
+  price number(8),
+  pcode varchar2(4),
+```
+
 변화가 없는 것 같지만
 
 데이터 베이스값을 한 번 보겠습니다.
