@@ -1,6 +1,6 @@
 #DB-Web
 
-#DB를 사용해 회원등록 사이트 만들기
+# DB를 사용해 회원등록 사이트 만들기
 
 ![image](https://user-images.githubusercontent.com/93520535/186063218-9ae93371-29c6-4cb2-bd22-6ad08afe0579.png)
 
@@ -86,7 +86,9 @@ pstmt.setString(2, request.getParameter("custname"));
 
 ![image](https://user-images.githubusercontent.com/93520535/186064030-7d1e2a57-22c8-426d-8792-5e564b295f09.png)
 
+
 등록을 누르면 메인 화면으로 돌아가게 됩니다.
+
 
 ![image](https://user-images.githubusercontent.com/93520535/186064074-faa77a95-5a22-4680-ae01-ce1f5ea6c8e7.png)
 
@@ -98,13 +100,3 @@ pstmt.setString(2, request.getParameter("custname"));
 ![image](https://user-images.githubusercontent.com/93520535/186064428-f3db0ce8-9144-45b4-af0b-e7526de702db.png)
 
 값이 추가된것을 볼 수 있습니다.
-
-
-
-
-
-
-
-
-
-
