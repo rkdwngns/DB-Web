@@ -13,6 +13,26 @@
 
 ![image](https://user-images.githubusercontent.com/93520535/186063456-c0fccc79-2d47-4ccf-a6a8-6304dbb39f98.png)
 
+데이터 베이스 연결 파일
+
+```java
+public static Connection getConnection() {
+		Connection conn = null;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String id = "system";
+		String pw = "1234";
+		
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			conn = DriverManager.getConnection(url, id, pw);
+			
+			System.out.println("DB test");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+```
+
 데이터 베이스에 정보를 추가하기 위한 join화면 입니다.
 
 ```jsp
@@ -31,7 +51,6 @@
 	<td><input type="text" name="custname" ></td>
 	</tr>            
 ```
-DB를 연결해주고
 각 이름을 정해주고 join_p페이지에서 custon을 제외하고 문자열로 값을 받습니다.
 String sql="insert into member_tbl_02 values (?, ?, ?, ?, ?, ?, ?)";
 이 코드를 보면 member_tbl_02 values에 sql을 넣고
