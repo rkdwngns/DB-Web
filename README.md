@@ -48,6 +48,7 @@ public static Connection getConnection() {
 System계정에 연결을 시도하고
 데이터 베이스에 연결에 성공할 시에 
 DBtest라는 문구가 출력 됩니다.
+그리고 try와 catch문을 사용해 예외처리를 해줍니다.
 
 
 ![image](https://user-images.githubusercontent.com/93520535/186095219-a75194ed-27b6-4adb-ba51-de3c142b6c89.png)
