@@ -76,7 +76,8 @@ custno의 값을 max 전부 가져온다는 뜻입니다. 그리고 num에 int�
 <td><input type="text" name="custno" value="<%= num %>"  readonly ></td>
 ```
 <%= num %>을 통해 값을 넣어줍니다.
-데이터 베이스에 정보를 추가하기 위한 join화면 입니다.
+
+# 데이터 베이스에 정보를 추가하기 위한 join화면 입니다.
 
 ```jsp
 <script type="text/javascript">W
