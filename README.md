@@ -13,7 +13,7 @@
 
 ![image](https://user-images.githubusercontent.com/93520535/186063456-c0fccc79-2d47-4ccf-a6a8-6304dbb39f98.png)
 
-DB테이블을 생성해 놓은 쿼리문
+# DB테이블을 생성해 놓은 쿼리문
 
 ```DB
  create table money_tbl_02(
@@ -26,7 +26,7 @@ DB테이블을 생성해 놓은 쿼리문
 ```
 이곳에는 데이터를 넣는 DB테이블을 생성하였습니다.
 
-데이터 베이스 연결 파일
+# 데이터 베이스 연결 파일
 
 ```java
 public static Connection getConnection() {
@@ -54,7 +54,7 @@ DBtest라는 문구가 출력 됩니다.
 ![image](https://user-images.githubusercontent.com/93520535/186095219-a75194ed-27b6-4adb-ba51-de3c142b6c89.png)
 
 
-회원번호 자동 생성 되는 코드
+# 회원번호 자동 생성 되는 코드
 ```jsp
 <th>회원번호(자동발생)</th>
 <td><input type="text" name="custno" value="<%= num %>"  readonly ></td>
