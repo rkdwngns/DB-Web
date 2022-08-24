@@ -52,8 +52,28 @@ DBtest라는 문구가 출력 됩니다.
 
 
 ![image](https://user-images.githubusercontent.com/93520535/186095219-a75194ed-27b6-4adb-ba51-de3c142b6c89.png)
+회원번호 자동 생성 되는 코드
+```jsp
+<th>회원번호(자동발생)</th>
+<td><input type="text" name="custno" value="<%= num %>"  readonly ></td>
+</tr>
 
+String sql="select max(custno) from member_tbl_02";
 
+Connection conn = DBConnect.getConnection();
+PreparedStatement pstmt = conn.prepareStatement(sql);
+ResultSet rs = pstmt.executeQuery();
+	
+rs.next();
+int num = rs.getInt(1)+1;
+%>  
+```
+첫번쨰를 보시면 String sql로 시작하는 문장은 member_tbl_02라는 테이블에서
+custno의 값을 max 전부 가져온다는 뜻입니다. 그리고 num에 int형태로 가져온후
+```jsp
+<td><input type="text" name="custno" value="<%= num %>"  readonly ></td>
+```
+<%= num %>을 통해 값을 넣어줍니다.
 데이터 베이스에 정보를 추가하기 위한 join화면 입니다.
 
 ```jsp
