@@ -52,6 +52,8 @@ DBtest라는 문구가 출력 됩니다.
 
 
 ![image](https://user-images.githubusercontent.com/93520535/186095219-a75194ed-27b6-4adb-ba51-de3c142b6c89.png)
+
+
 회원번호 자동 생성 되는 코드
 ```jsp
 <th>회원번호(자동발생)</th>
