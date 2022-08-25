@@ -149,7 +149,7 @@ to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-
 ```jsp
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 ```
-로 정보를 저장한뒤
+쿼리문으로 변환 
 ```jsp
 	ResultSet rs = pstmt.executeQuery();
 ```
