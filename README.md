@@ -1,6 +1,6 @@
 #DB-Web
 
-# 쇼핑몰 회원관리 사이트 만
+# 쇼핑몰 회원관리 사이트 만들기
 
 ![image](https://user-images.githubusercontent.com/93520535/186063218-9ae93371-29c6-4cb2-bd22-6ad08afe0579.png)
 
