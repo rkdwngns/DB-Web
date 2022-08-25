@@ -141,11 +141,20 @@ pstmt.setString(2, request.getParameter("custname"));
 			  +"city from member_tbl_02 order by custno asc";
 
 ```
-문자열 형태로 sql에 쿼리문을 사용하여 정보를 저장하여 줍니다.
+문자열 형태로 sql에 쿼리문을 사용하여 정보를 불러옵니다..
 sustno, custname, phone, address를 검색하고
 to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-11로 바꿔줍니다.
 그리고 when을 사용하여 조건을 달아 등급을 매깁니다.
-그리고 도시 번호를 가져와주면 표를 만들기 위한 기본적인 데이터 넣기는 끝났습니다.
+```jsp
+	PreparedStatement pstmt = conn.prepareStatement(sql);
+```
+로 정보를 저장한뒤
+```jsp
+	ResultSet rs = pstmt.executeQuery();
+```
+실행후 값을 rs에 저장해 줍니다.
+
+그리고 도시 번호를 가져와주면 표를 만들기 위한 기본적인 준비 끝났습니다.
 ```HTML
 	<th>회원번호</th>
 	<th>회원성명</th>
@@ -156,7 +165,37 @@ to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-
 	<th>거주지역</th>
 ```
 ![image](https://user-images.githubusercontent.com/93520535/186559837-f43a805c-940f-4441-a231-0daab520bde1.png)
-첫 행에 올 값을 넣어줍니다.
+
+
+첫 행에 표시될 항목들을 적어줍니다.
+
+```HTML
+<%
+	while(rs.next()) {
+%>
+<tr class="center">
+	<td><%= rs.getString("custno")%></td>
+	<td><%= rs.getString("custname") %></td>
+	<td><%= rs.getString("phone") %></td>
+	<td><%= rs.getString("address") %></td>
+	<td><%= rs.getString("joindate") %></td>
+	<td><%= rs.getString("grade") %></td>
+	<td><%= rs.getString("city") %></td>
+<td>
+	<input type="button" value="수정" >
+	<input type="button" value="삭제" ></td>
+</tr>
+<%
+	}
+%>
+```
+다음은 일일이 데이터의 값을 넣어줄 수도 있으나 
+while문을 사용하여 문자열 형태로 자동으로 데이터& 표를 만들어 줄 것 입니다.
+그러면 다음과 같은 화면이 나오게 됩니다.
+
+![image](https://user-images.githubusercontent.com/93520535/186560736-413977a5-048c-44fa-8eec-12bffb206dde.png)
+
+
 
 
 
