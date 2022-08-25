@@ -145,6 +145,7 @@ pstmt.setString(2, request.getParameter("custname"));
 sustno, custname, phone, address를 검색하고
 to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-11로 바꿔줍니다.
 그리고 when을 사용하여 조건을 달아 등급을 매깁니다.
+그리고 도시 번호를 가져와주면
 ```jsp
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 ```
@@ -153,8 +154,7 @@ to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-
 	ResultSet rs = pstmt.executeQuery();
 ```
 실행후 값을 rs에 저장해 줍니다.
-
-그리고 도시 번호를 가져와주면 표를 만들기 위한 기본적인 준비 끝났습니다.
+ 표를 만들기 위한 기본적인 준비 끝났습니다.
 ```HTML
 	<th>회원번호</th>
 	<th>회원성명</th>
