@@ -132,3 +132,31 @@ pstmt.setString(2, request.getParameter("custname"));
 ![image](https://user-images.githubusercontent.com/93520535/186064428-f3db0ce8-9144-45b4-af0b-e7526de702db.png)
 
 값이 추가된것을 볼 수 있습니다.
+
+# 회원 데이터 수정 삭제 표 만들기
+```jsp
+	String sql="select custno, custname, phone, address, "
+	          +"to_char(joindate,'yyyy-mm-dd') joindate, "
+			  +"case when grade = 'A' then 'VIP' when grade = 'B' then '일반' else '직원' end grade, "
+			  +"city from member_tbl_02 order by custno asc";
+
+```
+문자열 형태로 sql에 쿼리문을 사용하여 정보를 저장하여 줍니다.
+sustno, custname, phone, address를 검색하고
+to_char을 사용하여 20151211이렇게 되어있는 날짜 형식을 2015-12-11로 바꿔줍니다.
+그리고 when을 사용하여 조건을 달아 등급을 매깁니다.
+그리고 도시 번호를 가져와주면 표를 만들기 위한 기본적인 데이터 넣기는 끝났습니다.
+```HTML
+	<th>회원번호</th>
+	<th>회원성명</th>
+	<th>전화번호</th>
+	<th>주소</th>
+	<th>가입일자</th>
+	<th>고객등급</th>
+	<th>거주지역</th>
+```
+![image](https://user-images.githubusercontent.com/93520535/186559837-f43a805c-940f-4441-a231-0daab520bde1.png)
+첫 행에 올 값을 넣어줍니다.
+
+
+
