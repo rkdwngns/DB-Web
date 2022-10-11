@@ -197,7 +197,62 @@ while문을 사용하여
 ![image](https://user-images.githubusercontent.com/93520535/186560736-413977a5-048c-44fa-8eec-12bffb206dde.png)
 
 ## member_search
+```jsp
+int in_custno = Integer.parseInt(request.getParameter("in_custno"));
+String sql="select custno, custname, phone, address, to_char(joindate,'yyyy-mm-dd') joindate," 
+		+ "case when grade = 'A' then 'VIP' when grade = 'B' then '일반' else '직원' end grade,"
+		+ "city from member_tbl_02 where custno =" + in_custno;
 
+```
+원하는 결과를 출력하기 위해 SQL문을 작성하여 데이터 베이스에서 값을 나타내주었습니다. 문자열로 sql에 담아 줍니다.
+```jsp
+	<td><%= rs.getString("custno") %></td>
+	<td><%= rs.getString("custname") %></td>
+	<td><%= rs.getString("phone") %></td>
+	<td><%= rs.getString("address") %></td>
+ 	<td><%= rs.getString("joindate") %></td>
+	<td><%= rs.getString("grade") %></td>
+	<td><%= rs.getString("city") %></td>
+```
+을 통해 각 표에 문자열 형태로 표시해주겠습니다.
+```jsp
+	<p align="center">회원번호 <%= in_custno %>의 회원 정보가 없습니다.</p>
+				
+	<p align="center"> <input type="button" value="다시조회" onclick="location.href='member_search.jsp'"></p>
+```
+center값을 주고 정보가 없을 경우에는 <%= in_custno %>를 통해 이름을 표시해주고 ~의 정보가 없습니다를 표시하게 해주었습니다.
+그리고 다시 조회에는 member_search페이지로 넘어가게 링크를 표시해주었습니다.
+
+![image](https://user-images.githubusercontent.com/93520535/195012437-d2aed97c-db08-4bf0-8d11-dd74c47486e0.png)
+
+
+![image](https://user-images.githubusercontent.com/93520535/195012478-e12258ab-6bbd-49d0-a06e-63c6dc88db69.png)
+
+## sales_list page
+
+![image](https://user-images.githubusercontent.com/93520535/195012652-85183055-4f5c-46bd-b0a7-afb88dd0c1aa.png)
+
+```jsp
+	String sql="select mb.custno, mb.custname, "
+			  +"case when grade = 'A' then 'VIP' "
+			  +"when grade = 'B' then '일반' else '직원' end grade, "
+			  +"sum(mo.price) price from member_tbl_02 mb, money_tbl_02 mo "
+			  +"where mb.custno = mo.custno and mo.price is not null "
+			  +"group by mb.custno, mb.custname, mb.grade "
+			  +"order by sum(mo.price) desc";
+```
+회원의 매출 및 총합을 구하기 위해 만들어둔 member테이블과 money테이블을 하나로 묶어주었습니다.
+```jsp
+			 i += Integer.parseInt(rs.getString("price"));  
+				}
+```
+매출을 int형으로 바꾸고 총합을 구한뒤에 다시 getString를 사용하여 총합을 표시해줍니다.
+
+update & update_p
+```jsp
+String sql="update member_tbl_02 set custname=?, phone=?, address=?, joindate=?, grade=?, city=? where custno="+ 	Integer.parseInt(request.getParameter("custno"));
+```
+을 통해 
 
 
 
